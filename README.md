@@ -1,24 +1,27 @@
 # heart_disease_prediction
 
-This project uses machine learning to predict the likelihood of heart disease based on patient data.
+This project uses machine learning to predict the likelihood of heart disease based on patient health data. The process includes data cleaning, visualization, model training, and evaluation to ensure accurate results.
 
 ## Dataset
 - Source: [Kaggle Heart Disease Dataset](https://www.kaggle.com/datasets)
-- Features include age, cholesterol level, blood pressure, etc.
+- Features include: age, sex, chest pain type, resting blood pressure, cholesterol level, fasting blood sugar, maximum heart rate, exercise-induced angina, and more.
 
 ## Methods
-- Logistic Regression
-- Model Evaluation: Accuracy, Precision, Recall, Confusion Matrix
+- Data Cleaning: Removed duplicates, handled missing values, ensured correct data types.
+-	Data Visualization: Used Matplotlib and Seaborn to plot distributions, correlations, and patterns in the dataset.
+-	Train-Test Split: Shuffled and split dataset into training and testing sets for fair evaluation.
+-	Model Used: Logistic Regression.
+-	Evaluation Metrics: Accuracy, Precision, Recall, Confusion Matrix.
 
 ## Results
 - Accuracy: 86%
 - Precision: 96%
 - Recall: 78%
 
-## How to Run
-1. Clone the repo
-2. Install requirements: pip install -r requirements.txt
-3. Run the notebook or open the HTML file for results
+## How to run
+-	Open heart_disease_prediction.ipynb
+-	Run all cells to see data cleaning, visualisations, and predictions.Run
+
 
 ## Author
 Hareem Shahid

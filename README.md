@@ -7,7 +7,7 @@ This project uses machine learning to predict the likelihood of heart disease ba
 - Features include: age, sex, chest pain type, resting blood pressure, cholesterol level, fasting blood sugar, maximum heart rate, exercise-induced angina, and more.
 
 ## Methods
-- Data Cleaning: Removed duplicates, handled missing values, ensured correct data types.
+- Data Cleaning: Removed duplicates.
 -	Data Visualization: Used Matplotlib and Seaborn to plot distributions, correlations, and patterns in the dataset.
 -	Train-Test Split: Shuffled and split dataset into training and testing sets for fair evaluation.
 -	Model Used: Logistic Regression.

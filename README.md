@@ -115,22 +115,34 @@ plt.show()
 Allows doctors and researchers to see which clinical variables most influence predictions.
 ## New Patient Prediction
 
-Example for a new patient:
+# 1. Create new patient
 new_patient = pd.DataFrame([{
     'age': 55, 'sex': 1, 'cp': 2, 'trestbps': 130, 'chol': 250,
     'fbs': 0, 'restecg': 1, 'thalach': 150, 'exang': 0,
     'oldpeak': 1.2, 'slope': 2, 'ca': 0, 'thal': 2
 }])
 
-# Apply same preprocessing
-new_patient[columns_with_invalid_zeros] = imputer.transform(new_patient[columns_with_invalid_zeros])
-new_patient_scaled = scaler.transform(new_patient)
+# 2. Median imputation
+new_patient[columns_with_invalid_zeros] = imputer.transform(
+    new_patient[columns_with_invalid_zeros]
+)
 
+# 3. One-hot encode same categorical columns
+new_patient_encoded = pd.get_dummies(new_patient, columns=['cp','slope','thal'])
+
+# 4. Align columns to training data (fill missing with 0)
+new_patient_encoded = new_patient_encoded.reindex(columns=X_train.columns, fill_value=0)
+
+# 5. Scale
+new_patient_scaled = scaler.transform(new_patient_encoded)
+
+# 6. Predict
 prediction = rf.predict(new_patient_scaled)
 probability = rf.predict_proba(new_patient_scaled)
 
 print("Prediction (0=Healthy, 1=Heart Disease):", prediction[0])
 print("Probability of heart disease:", probability[0][1])
+
 ## Clinical Interpretation
 
 prediction = 1 → Model suspects heart disease
